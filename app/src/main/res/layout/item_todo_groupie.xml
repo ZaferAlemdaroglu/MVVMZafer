@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+ >
+
+    <data>
+        <variable name="todoItem"
+                  type="com.zafer.mvvmzaferapp.data.db.entities.TodoItem"/>
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:padding="5dp">
+
+
+                <TextView android:layout_width="0dp"
+                          android:layout_weight="0.5"
+                          android:text="@{todoItem.name}"
+                          tools:text="Name"
+                          android:layout_height="wrap_content"/>
+
+
+                <TextView android:layout_width="0dp"
+                          android:layout_weight="0.5"
+                          android:gravity="end"
+                          tools:text="Create Date"
+                          android:text="@{todoItem.createDate}"
+                          android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+
+            <TextView android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      tools:text="Description"
+                      android:text="@{todoItem.description}"
+                      android:padding="5dp"/>
+
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:padding="5dp">
+
+
+                <TextView android:layout_width="0dp"
+                          android:layout_weight="0.8"
+                          android:text="@{todoItem.deadline}"
+                          tools:text="Deadline"
+                          android:layout_height="wrap_content"/>
+
+
+
+                <ImageView
+
+                        android:src="@{todoItem.completed?@drawable/ic_check_black_24dp :@drawable/ic_assignment_late_black_24dp}"
+                        android:scaleType="fitEnd"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/switchComplete" android:layout_weight="0.2"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</layout>
